@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>JavaScript调试机3-ENimo</title>
+<script  type="text/javascript" src="any v1.0.js" ></script>
+<style>
+a{display:block;font-size:15px};
+div {
+background:#eee;
+}
+#inf {
+width:100px;
+height:300px;
+background:#ff8c00;
+border:1px solid #ccc;
+}
+</style>
+<script type="text/javascript">
+
+ 
+</script>
+</head>
+<body>
+
+<div id="btn"  style="width:100px;height:100px;background:red;">btn_div</div>
+
+
+	<!-- 导航 -->
+	<div class="block"></div> 
+	<input type="button" id="in" value="in" />
+	<input type="button" id="out" value="out" />
+	<input type="button" id="tog" value="tog" />
+	<input type="button" id="get" value="get" />
+		<input type="button" id="set" value="set" />
+	<input type="text" id="num" value="10" />
+		<input type="hidden" id="hiddenval" value="1" />
+	<div id="inf" title="inf title">
+	inf
+	</div>
+		<div id="inf2">
+	inf2
+	</div>
+
+<div id="div1" style="width:300px;height:48px;overflow:hidden">
+DIV1
+  <a href="/javascript:">1,你可曾有过无数的梦想，</a>
+  <a href="/javascript:">2,却在时光的流逝里幻灭 </a>
+  <a href="/javascript:">3,你可曾对未来期待憧憬，</a>
+  <a href="/javascript:">4,却在成长的岁月中迷失</a>
+</div> 
+<script type="text/javascript">
+
+
+//$$("go").onclick=function(){this.hide();alert("btn");}
+
+//$2("inf").onclick=function(){this.hide();alert("btn");}
+/* $("in").onclick=function(){
+alert("d");
+//$("btn").show();
+} */
+
+/* $("in").msover(function(){
+//alert("d");
+$("btn").show().cs("color","blue");
+$("inf","inf2").cs("color","blue");
+$("div1").hide();
+$("btn").cs("opacity","0.3");
+});
+$("inf2","inf").dbclick(function(){
+$("inf").cs("opacity","0.3");
+});
+$("inf2").msover(function(){
+$("inf").cs("opacity","0.3");
+});
+$("inf2").msout(function(){
+$("inf").cs("opacity","1");
+});*/
+$("tog").toggle(function(){$("div1").hide();},function(){$("div1").show();});
+$("tog").hov(function(){$("div1").hide();},function(){$("div1").show();}); 
+//$("tog").click(function(){alert($("tog","in").val());});
+$("out").click(function(){$("btn").fout();});
+any("in").click(function(){$("btn").fin();});
+i=2;
+any("tog").click(function(){$("num").set("value",i++);});
+
+//完善
+//1// 全局有效 //2 渐变 //3其他事件 如hover 4 ajax //5已经实现链式操作
+var $$=function(){return (typeof arguments[0])=="string"?document.getElementById(arguments[0]):"null";}
+//alert($$("inf").innerHTML); //ok
+//alert($$("num").value); //ok
+//alert($("num").get()); //ok
+$("get").click(function(){alert($("inf").get("h"));});
+$("set").click(function(){$("inf2","inf").set("h","6546456");});
+//alert($$("inf").getAttribute("title"));//ok
+//alert(document.getElementsByTagName("num")[0].nodeValue);
+//window.onload=run;
+</script>
+	</body>
+	</html>
+
