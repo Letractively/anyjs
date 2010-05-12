@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>JavaScript调试机-ENimo</title>
+<script  type="text/javascript" src="anyjs2.0.js" ></script>
+<style>
+a {font-size:12px};
+div {
+/* background:#FF4C00; */
+display:block;
+width:100px;
+height:20px;
+} 
+.new{
+float:left;
+background:#ccc;
+width:100px;
+height:100px;
+}
+.enimo{
+float:left;
+background:blue;
+width:100px;
+height:100px;
+}
+#inf {
+width:100px;
+height:100px;
+background:#ff8c00;
+border:1px solid #ccc;
+}
+#inf2 {
+width:100px;
+height:20px;
+border:1px solid #ccc;
+}
+.anyside{
+width:auto;
+height:auto;
+border:1px solid #ccc;
+}
+.anyside h3{
+width:200px;
+border:1px solid red;
+}
+</style>
+<script type="text/javascript">
+//var str="enimo ghost";
+ //alert(str.indexOf("en"));
+</script>
+</head>
+<body id="body">
+<div id="btn"  style="width:100px;height:100px;background:red;">btn</div>
+	<div class="block"></div> 
+	<input type="button" id="in" value="in" />
+	<input type="button" id="out" value="out" />
+	<input type="button" id="tog" value="tog" />
+	<input type="button" id="get" value="get" />
+	<input type="button" id="set" value="set" />
+	<input type="button" id="create" value="create" />
+	<input type="button" id="remove" value="remove" />
+
+
+	<input type="text" id="num" value="10" />
+	<input type="text" id="cid" value="#inf" />
+	<input type="button" id="foutwhat" value="foutwhat" />
+	<input type="button" id="finwhat" value="finwhat" />
+	<input type="hidden" id="hiddenval" value="1" />
+
+	<div id="inf" title="inf title">inf</div>
+	<div id="inf2">inf2</div>
+	<div id="text">DIV3-TEXT</div>
+
+	<div id="div1" style="width:300px;height:100px;overflow:hidden">
+  <a href="/javascript:">1,你可曾有过无数的梦想，</a>
+  <a href="/javascript:">2,却在时光的流逝里幻灭 </a>
+  <a href="/javascript:">3,你可曾对未来期待憧憬，</a>
+  <a href="/javascript:">4,却在成长的岁月中迷失</a>
+	</div> 
+
+	<div id="art" class="anyside">
+	<h3>最新文章</h3>
+		<ul>
+<li class="istop"><a href="./?view-45.htm" title="学校召开中层干部会议　校党委书记陈达云部署2010年工作&#13;点击量：411&#13;发布时间：2010-03-04 01:28" target="_blank">学校召开中层干部会议　校党委书...[图]</a></li><li class="istop"><a href="./?view-36.htm" title="学分公示&#13;点击量：6&#13;发布时间：2009-12-29 21:12" target="_blank">学分公示</a></li><li class=""><a href="./?view-55.htm" title="可以户口&#13;点击量：9&#13;发布时间：2010-03-21 19:25" target="_blank">可以户口[图]</a></li><li class=""><a href="./?view-43.htm" title="法学院第71期党校结业典礼&#13;点击量：122&#13;发布时间：2010-03-03 23:02" target="_blank">法学院第71期党校结业典礼</a></li><li class=""><a href="./?view-42.htm" title="我院举行“通往职业律师之路”专题讲座&#13;点击量：33&#13;发布时间：2010-03-03 23:02" target="_blank">我院举行“通往职业律师之路”专...</a></li><li class=""><a href="./?view-40.htm" title="热烈庆祝我院在2009年湖北省商法学研究年会中载誉而归&#13;点击量：16&#13;发布时间：2010-03-03 23:00" target="_blank">热烈庆祝我院在2009年湖北省商法学...</a></li><li class=""><a href="./?view-39.htm" title="热烈庆祝我院在“2009年全国大学生版权征文活动”中荣获佳绩&#13;点击量：13&#13;发布时间：2010-03-03 22:58" target="_blank">热烈庆祝我院在“2009年全国大学生...</a></li><li class=""><a href="./?view-38.htm" title="法学院2009级年级大会成功举行&#13;点击量：11&#13;发布时间：2010-03-03 22:57" target="_blank">法学院2009级年级大会成功举行</a></li></ul>
+
+</div><!--end anyside-->
+
+	<!-- <img id="img" src="browser.gif" /> -->
+<script type="text/javascript">
+//$$("go").onclick=function(){this.hide();alert("btn");}
+
+//$2("inf").onclick=function(){this.hide();alert("btn");}
+/* $("in").onclick=function(){
+alert("d");
+//$("btn").show();
+} */
+
+/* $("in").msover(function(){
+//alert("d");
+$("#btn").show().cs("color","blue");
+$("#inf","#inf2").cs("color","blue");
+$("#div1").hide();
+$("#btn").cs("opacity","0.3");
+});
+$("#inf2","#inf").dbclick(function(){
+$("#inf").cs("opacity","0.3");
+});
+$("#inf2").msover(function(){
+$("#inf").cs("opacity","0.3");
+});
+$("#inf2").msout(function(){
+$("#inf").cs("opacity","1");
+}); */
+
+//$("#tog").toggle(function(){$("#div1").hide();},function(){$("#div1").show();});
+//$("#tog").hov(function(){$("#text").hide();},function(){$("#text").show();}); 
+//$("#inf").hov(function(){$("#text").fout();},function(){$("#text").fin();}); 
+$("#out").click(function(){$("#btn").fout();});
+$("#in").click(function(){$("#btn").fin();});
+i=2;
+$("#tog").click(function(){$("#num").set("value",i++);});
+
+//完善
+//1// 全局有效 //2 渐变 //3其他事件 如hover 4 ajax //5已经实现链式操作
+//alert($$("inf").innerHTML); //ok
+//alert($$("num").value); //ok
+//alert($("#num").get()); //ok
+$("#get").click(function(){alert($("#num").get());});
+$("#set").click(function(){$("#inf2","#inf3","#inf5 h3").set("h","6546456");});
+
+$("#create").click(function(){
+var x=$().create("a");//alert(x);
+ var y=$().create("span");
+  var z=$().create("p");
+  $("#div1").apd(z);
+//alert(typeof x);
+$(x).set("title","enimo href a title");
+$(x).set("id","enimo");
+$(x).set("class","new2");
+$(x).set("href","http://www.anymoore.com");
+$(x).set("h","http://www.anymoore.com");
+
+$(y).set("class","enimo");
+$(y).set("id","enimo2");
+$("#div1").apd(x);
+$("#div1").ist(y);
+});
+
+$("#remove").click(function(){
+$("#enimo").rmv();
+$("#enimo2").rmv();
+
+});
+
+$("#foutwhat").click(function(){
+$($("#cid").get()).fout();
+
+});
+$("#finwhat").click(function(){
+$($("#cid").get()).fin();
+
+}); 
+
+$("#num").change(function(){
+alert("change");
+
+});
+$("#num").focus(function(){
+//alert("focus");
+
+});
+$("#num").blur(function(){
+//alert("num blur");
+alert($$("num").tagName);
+}); 
+
+//$("#art h3","#num").msover(function(){alert("over ok")});
+
+//$("#art h3","#num").msmv(function(el){alert("move ok"+$$("num").offsetTop);});
+$("div.anyside h3").click(function(){alert("is top class click ok")});
+/* $().load(function(){
+//alert("window load");
+
+});
+$("#img").load(function(){
+//alert("img load");
+
+}); */
+$().key(function(){
+//alert("keypress");
+
+});
+//alert($$("inf").getAttribute("title"));//ok
+</script>
+</body>
+</html>
+
