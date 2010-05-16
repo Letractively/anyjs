@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>JavaScript调试机-ENimo</title>
+<script  type="text/javascript" src="anyjs2.4.js" ></script>
+<style>
+*{margin:0;padding:0;}
+a {font-size:12px};
+div {
+/* background:#FF4C00; */
+/* display:block; */
+width:100px;
+height:20px;
+} 
+p{
+height:120px;
+}
+.new{
+float:left;
+background:#ccc;
+width:100px;
+height:100px;
+}
+.enimo{
+float:left;
+background:blue;
+width:100px;
+height:100px;
+border:1px dotted red;
+}
+#inf {
+width:100px;
+height:100px;
+background:#ff8c00;
+border:1px solid #ccc;
+}
+#inf2 {
+width:100px;
+height:300px;
+border:1px solid #ccc;
+}
+.anyside{
+width:auto;
+height:auto;
+border:1px solid #ccc;
+}
+.anyside h3{
+width:200px;
+border:1px solid red;
+}
+.ajax{
+position:relative;
+margin:150px auto;
+width:400px;
+height:300px;
+border:2px solid #ccc;
+color:#696969;
+z-index:99;
+background-color:#eee;
+display:none;
+}
+.bglay{
+position:fixed;
+_position:absolute;/*ie6*/
+z-index:2;
+overflow:hidden;
+top:0px;
+left:0px;
+width: 100%;
+height: 100%;
+background:#000;
+opacity:0.5;
+filter: Alpha(opacity=50);
+}
+</style>
+<script type="text/javascript">
+//var str="enimo ghost";
+//alert(document.documentElement.scrollHeight)
+</script>
+</head>
+<body id="body">
+<input type="text" id="clock" size="30"/><button onclick="int=window.clearInterval(int)">Stop</button>
+<div id="btn"  style="width:100px;height:100px;background:red;">btn</div>
+	<div class="block"></div> 
+	<input type="button" id="in" value="in" />
+	<input type="button" id="out" value="out" />
+	<input type="button" id="tog" value="tog" />
+	<input type="button" id="get" value="get" />
+	<input type="button" id="set" value="set" />
+	<input type="button" id="create" value="create" />
+	<input type="button" id="remove" value="remove" />
+
+
+	<input type="text" id="num" value="10" />
+	<input type="text" id="cid" value="#inf" />
+	<input type="button" id="foutwhat" value="foutwhat" />
+	<input type="button" id="finwhat" value="finwhat" />
+	<input type="button" id="sout" value="sout" />
+	<input type="button" id="sin" value="sin" />
+	<input type="button" id="ajaxbtn" value="ajaxbtn" />
+	<input type="hidden" id="hiddenval" value="1" />
+
+	<div id="inf" title="inf title" class="anyside">inf</div>
+	<div id="inf2">inf2</div>
+	<div id="text">DIV3-TEXT</div>
+
+	<div id="div1" style="width:300px;height:100px;overflow:hidden">
+  <a href="/javascript:">1,你可曾有过无数的梦想，</a>
+  <a href="/javascript:">2,却在时光的流逝里幻灭 </a>
+  <a href="/javascript:">3,你可曾对未来期待憧憬，</a>
+  <a href="/javascript:">4,却在成长的岁月中迷失</a>
+	</div> 
+
+<div id="art" class="anyside">
+<h3>最新文章</h3>
+<ul>
+<li class="istop"><a href="./?view-45.htm" title="学校召开中层干部会议　校党委书记陈达云部署2010年工作&#13;点击量：411&#13;发布时间：2010-03-04 01:28" target="_blank">学校召开中层干部会议　校党委书...[图]</a></li><li class="istop"><a href="./?view-36.htm" title="学分公示&#13;点击量：6&#13;发布时间：2009-12-29 21:12" target="_blank">学分公示</a></li><li class=""><a href="./?view-55.htm" title="可以户口&#13;点击量：9&#13;发布时间：2010-03-21 19:25" target="_blank">可以户口[图]</a></li><li class=""><a href="./?view-43.htm" title="法学院第71期党校结业典礼&#13;点击量：122&#13;发布时间：2010-03-03 23:02" target="_blank">法学院第71期党校结业典礼</a></li><li class=""><a href="./?view-42.htm" title="我院举行“通往职业律师之路”专题讲座&#13;点击量：33&#13;发布时间：2010-03-03 23:02" target="_blank">我院举行“通往职业律师之路”专...</a></li><li class=""><a href="./?view-40.htm" title="热烈庆祝我院在2009年湖北省商法学研究年会中载誉而归&#13;点击量：16&#13;发布时间：2010-03-03 23:00" target="_blank">热烈庆祝我院在2009年湖北省商法学...</a></li><li class=""><a href="./?view-39.htm" title="热烈庆祝我院在“2009年全国大学生版权征文活动”中荣获佳绩&#13;点击量：13&#13;发布时间：2010-03-03 22:58" target="_blank">热烈庆祝我院在“2009年全国大学生...</a></li><li class=""><a href="./?view-38.htm" title="法学院2009级年级大会成功举行&#13;点击量：11&#13;发布时间：2010-03-03 22:57" target="_blank">法学院2009级年级大会成功举行</a></li></ul>
+
+</div><!--end anyside-->
+
+<!-- <img id="img" src="browser.gif" /> -->
+<script type="text/javascript">
+//$$("go").onclick=function(){this.hide();alert("btn");}
+
+//$2("inf").onclick=function(){this.hide();alert("btn");}
+/* $("in").onclick=function(){
+alert("d");
+//$("btn").show();
+} */
+
+/* $("in").msover(function(){
+//alert("d");
+$("#btn").show().cs("color","blue");
+$("#inf","#inf2").cs("color","blue");
+$("#div1").hide();
+$("#btn").cs("opacity","0.3");
+});
+$("#inf2","#inf").dbclick(function(){
+$("#inf").cs("opacity","0.3");
+});
+$("#inf2").msover(function(){
+$("#inf").cs("opacity","0.3");
+});
+$("#inf2").msout(function(){
+$("#inf").cs("opacity","1");
+}); */
+
+$("#tog").click(function(){$("#inf").hide();},function(){$("#inf").show();});
+//$("#tog").hov(function(){$("#text").hide();},function(){$("#text").show();}); 
+//$("#inf").hov(function(){$("#text").fout();},function(){$("#text").fin();}); 
+$("#out").click(function(){$("#btn").fout();});
+$("#in").click(function(){$("#btn").fin();});
+i=2;
+$("#tog").click(function(){$("#num").set("value",i++);});
+
+//完善
+//1// 全局有效ok //2 渐变 ok //3其他事件hover ok 4 ajax //5链式操作ok
+$("#get").click(function(){alert($("#num").get());});
+$("#set").click(function(){$("#inf2","#inf3","#inf5 h3").set("h","6546456");});
+
+$("#create").click(function(){
+var x=$.create("a");//alert(x);
+var y=$.create("span");
+var z=$.create("p");
+$("#div1").apd(z);
+//alert(typeof x);
+$(x).set("title","enimo href a title").set("id","enimo").set("class","new2").set("href","http://www.anymoore.com");
+$(x).set("h","http://www.anymoore.com");
+
+$(y).set("class","enimo").set("id","enimo2");
+$("#div1").apd(x);
+$("#div1").ist(y);
+});
+
+$("#remove").click(function(){
+$("#enimo").rmv();
+$("#enimo2").rmv();
+});
+
+$("#foutwhat").click(function(){
+$($("#cid").get()).fout();
+
+});
+$("#finwhat").click(function(){
+$($("#cid").get()).fin();
+}); 
+
+$("#num").change(function(){
+alert("change");
+});
+$("#num").focus(function(){
+//alert("focus");
+
+});
+$("#num").blur(function(){
+//alert("num blur");
+
+}); 
+//alert($$("num").tagName);
+//alert($("#num").tagName);
+//$("#art h3","#num").msover(function(){alert("over ok")});
+//$("#art h3","#num").msmv(function(el){alert("move ok"+$$("num").offsetTop);});
+$("div.anyside h3").click(function(){alert("is top class click ok")});
+/* $().load(function(){
+//alert("window load");
+
+});
+$("#img").load(function(){
+//alert("img load");
+}); */
+$("#ajaxbtn").click(function(){
+//alert("keypress");
+//$.x();
+//$("li").rmv();
+//$.create();
+//$$("num").focus();
+y=$.create("div");
+$(y).set("id","bglay").set("class","bglay");
+$("body").ist(y);
+x=$.create("div");
+$(x).set("id","ajax");
+$(x).set("class","ajax");
+$("#bglay").ist(x);
+$("#ajax").show();
+$.x("data.php?num=5&type=xml&p="+Math.random(),function(data){
+//var txt=data;
+//alert(data);
+var txt="<table border='3'>";
+x2=data.documentElement.getElementsByTagName("any");
+$("#ajax").h(data);
+for (i=0;i<x2.length;i++){
+	txt=txt + "<tr>";
+	xx=x2[i].getElementsByTagName("title");
+	txt=txt + "<td>" + xx[0].firstChild.nodeValue + "</td>";
+	xx=x2[i].getElementsByTagName("data");
+	txt=txt + "<td>" + xx[0].firstChild.nodeValue + "</td>";
+	txt=txt + "</tr>";
+ }
+txt=txt + "</table>"; 
+$("#ajax").h(txt);
+
+},"GET","ajax","XML"); //动态php脚本测试ok，HTML XML ok json测试undefined，加参数测试ok,缓存测试OK,待POST测试
+
+$("#ajax").click(function(){$("div.bglay","#ajax").fout();$("div.bglay","#ajax").rmv();});
+});
+
+$("#num").keyup(function(){
+//alert("keyup");
+
+});
+$("#inf2").click(function(){
+//alert($(this).get("class"));不知道this指向的是谁？？？
+$("#art","#inf2").set("class","enimo");
+//alert("#inf width="+$("#inf").cs("width")+"px");
+$("#inf").cs("height","20px");
+//alert($("#inf").get("class"));
+//alert(window.getComputedStyle($$("inf2"),null)["width"]);
+});
+$("#inf").click(function(){
+$("#inf2","#art").rmvcls("enimo");
+$("#inf").cs("height","100px");
+});
+$("#sout").click(function(){
+$($("#cid").get()).sout(20);
+});
+$("#sin").click(function(){
+$($("#cid").get()).sin(10);
+});
+
+var int=self.setInterval("clock()",1000);
+function clock()
+{
+var d=new Date();
+var t=d.toLocaleString();
+$$("clock").value=t;
+}
+//alert($.version);
+//alert($("num").value); //ok
+//alert($$("num").value); //ok
+//alert($("#num").get()); //ok
+//alert($$("inf").getAttribute("title"));//ok
+//var event=onkeydown;
+//if(event.ctrlKey&&event.keyCode==13) alert("你牛！");
+</script>
+</body>
+</html>
+
